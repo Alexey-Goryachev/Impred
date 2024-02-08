@@ -1,1 +1,1 @@
-# Descriptor Image
+# Image Predictor
