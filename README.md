@@ -1,1 +1,1 @@
-# DIM
+# Descriptor Image
