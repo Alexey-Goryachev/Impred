@@ -1,0 +1,35 @@
+{% extends "impred/base.html" %}
+
+{% block content %}
+
+<div>
+    <h3>Load Image</h3>
+</div>
+
+{% if messages %}
+<div>
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <!-- <label class="small mb-1">Choose Image:</label> -->
+                {{ image_form.as_p }}
+                <span>{{ image_form.errors.imagepath }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <button type="submit">Load Image</button>
+        <button type="reset" class="secondary">Reset</button>
+    </div>
+
+</form>
+
+{% endblock content %}

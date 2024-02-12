@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "ds-project"
+version = "0.1.0"
+description = ""
+authors = ["NikYurchik <14urka@gmail.com>"]
+readme = "README.md"
+packages = [{include = "ds_project"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.2"
+waitress = "^3.0.0"
+pillow = "^10.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

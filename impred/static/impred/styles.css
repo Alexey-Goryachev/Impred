@@ -1,0 +1,35 @@
+body {
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.login {
+    text-align: end;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.def-img {
+    width: 100%;
+    border: 1px solid #B3B3B3;
+    box-shadow: 1px 1px 3px #B3B3B3;
+}
+
+@media (min-width: 1170px) {
+    .def-img {
+        flex-wrap: nowrap;
+        transition: all .3s ease-out;
+    }
+}
+
+@media (min-width: 1170px) {
+    .def-img:focus, .def-img:hover {
+        box-shadow: 2px 2px 20px rgba(90,90,90,.35);
+    }
+}
