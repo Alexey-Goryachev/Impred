@@ -28,8 +28,10 @@ def loginuser(request):
         return redirect(to='impred:main')
 
     if request.method == 'POST':
+        print(f"request.method == 'POST'")
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is None:
+            print(f"Username or password didn\'t match")
             messages.error(request, 'Username or password didn\'t match')
             return redirect(to='user:login')
 

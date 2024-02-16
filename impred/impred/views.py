@@ -33,9 +33,9 @@ def loadimage(request):
             return redirect('impred:predictimage')
     else:
         form = ImageForm()
-    return render(request, 'impred/loadimage.html', {'image_form': form})
+    return render(request, 'impred/loadimage.html', context={'image_form': form})
 
 
 def predictimage(request):
     images = Images.objects.all()
-    return render(request, 'impred/predictimage.html', {'images': images})
+    return render(request, 'impred/predictimage.html', context={'images': images})
