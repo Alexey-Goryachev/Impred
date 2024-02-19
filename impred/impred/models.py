@@ -12,6 +12,7 @@ class NetModels(models.Model):
     description = models.CharField(max_length=150, null=False)
     created = models.DateTimeField(auto_now_add=True)
     modelpath = models.FileField(upload_to='models/', null=False)
+    accuracy = models.FloatField(null=True)
     
     def __str__(self):
         return f"{self.name}"
@@ -28,7 +29,7 @@ class Labels(models.Model):
         return f"{self.name}"
 
     class Meta:
-        unique_together = ('id', 'predict_id',)
+        unique_together = ('netmodel', 'predict_id',)
 
 class Images(models.Model):
     name = models.CharField(max_length=30, null=False)

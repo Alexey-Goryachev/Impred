@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from .forms import ImageForm
 from .models import Images, NetModels, Labels
-
+from .model_cifar10 import predict_image
 
 
 # Create your views here.
@@ -12,7 +12,6 @@ def main(request):
 
 
 def loadimage(request):
-    # print(request)
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
 
@@ -22,14 +21,15 @@ def loadimage(request):
             new_image.save()
 
             # # Предварительно код для анализа images моделью и привязки к классу.
-            # image_path = new_image.imagepath.path
+            image_path = new_image.imagepath.path
             # prediction = model_function(image_path)  # предварительно функция для предсказания класса
             # # Получение или создание соответствующей метки (label)
             # label, created = Labels.objects.get_or_create(name=prediction, netmodel=new_image.netmodel)
+            label = predict_image(image_path)
 
             # # Привязка к модели и предсказанию
-            # new_image.predict = label
-            # new_image.save()
+            new_image.predict = label
+            new_image.save()
             return redirect('impred:predictimage')
     else:
         form = ImageForm()
